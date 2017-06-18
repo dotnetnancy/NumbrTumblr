@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageTargetFallback>portable-net45+win8</PackageTargetFallback>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="INumberSetRepository.cs" />
+    <Compile Remove="IShuffleRepository.cs" />
+    <Compile Remove="NumberSetRepository.cs" />
+    <Compile Remove="ShuffleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\js\editNumberSetController.js" />
+    <Content Include="wwwroot\js\numberSetController.js" />
+    <Content Include="wwwroot\js\numberSetNumbersController.js" />
+    <Content Include="wwwroot\js\shufflesController.js" />
+    <Content Include="wwwroot\js\shuffleNumbersController.js" />
+    <Content Include="wwwroot\js\simpleControls.js" />
+    <Content Include="wwwroot\js\site.js" />
+    <Content Include="wwwroot\views\addNumberSetView.html" />
+    <Content Include="wwwroot\views\deleteNumberSet.html" />
+    <Content Include="wwwroot\views\deleteShuffleView.html" />
+    <Content Include="wwwroot\views\editNumberSetView.html" />
+    <Content Include="wwwroot\views\numberSetNumbersView.html" />
+    <Content Include="wwwroot\views\saveShuffleModal.html" />
+    <Content Include="wwwroot\views\shuffleNumbersView.html" />
+    <Content Include="wwwroot\views\shufflesView.html" />
+    <Content Include="wwwroot\views\waitCursor.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Repositories\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
+  </ItemGroup>
+<ItemGroup>
+  <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
+  </ItemGroup>
+<ItemGroup>
+  <None Include="wwwroot\views\numberSetsView.html" />
+</ItemGroup>
+</Project>

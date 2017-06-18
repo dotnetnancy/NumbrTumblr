@@ -1,0 +1,7 @@
+﻿{
+  "ConnectionStrings": {
+    "NumberTumblerContextConnection": "Data Source=(localdb)\\ProjectsV13;Database=NumberTumblerDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+
+  }
+
+}

@@ -1,0 +1,30 @@
+﻿<div class="container-fluid">
+    <div class="jumbotron row text-center">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert alert-danger" ng-show="vm.errorMessage"><strong>{{vm.errorMessage}}</strong></div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">NumberSet Numbers - {{vm.currentNumberSet.numberSetName}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="columns">
+                            <div ng-click="vm.selectNumber(n)" class="center-block" ng-repeat="n in vm.range(vm.currentNumberSet.numberSetMin,vm.currentNumberSet.numberSetMax)">
+                                <span ng-class="vm.isNumberSelected(n)? 'badge':''">{{n}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <a ng-href="#!/shuffleNumbers/{{vm.currentNumberSet.numberSetID}}/All" class="btn btn-primary btn-md btn-block">Shuffle All Numbers</a>
+                <p></p>
+                <a ng-href="#!/shuffleNumbers/{{vm.currentNumberSet.numberSetID}}/Selected" class="btn btn-primary btn-md btn-block">Shuffle Selected Numbers</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿<div class="container-fluid">
+    <div class="jumbotron row text-center">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert alert-danger" ng-show="vm.errorMessage"><strong>{{vm.errorMessage}}</strong></div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Shuffled</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="columns">
+                            <div ng-click="vm.selectShuffleNumber(n.number)" class="center-block" ng-repeat="n in vm.currentShuffleNumbers">
+                                <span ng-class="vm.isShuffleNumberSelected(n.number)? 'badge':''">{{n.number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <button ng-show="!vm.editMode" type="button" class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#myModal">Save New Shuffle</button>
+                    <button ng-show="vm.editMode" type="button" class="btn btn-primary btn-md btn-block" ng-click="vm.editShuffle()">Modify Existing Shuffle</button>
+
+                    <!--<button ng-click="vm.saveShuffleNumbers()" class="btn btn-primary btn-md btn-block">Save Shuffle With Picks</button>-->
+                </div>
+            </div>           
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>               
+            </div>
+            <div class="modal-body">
+                <form novalidate name="addShuffleForm" class="form-horizontal">
+                    <fieldset>
+                        <legend>Add New Shuffle</legend>
+                        <div class="form-group">
+                            <label for="inputShuffleName" class="col-lg-2 control-label">Name</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputShuffleName" name="inputShuffleName" placeholder="Give Shuffle a name"
+                                       ng-model="vm.shuffleDescription" required ng-minlength="5">
+                                <span ng-show="addShuffleForm.inputNumberSetName.$error.required" class="text-warning">Name is required</span>
+                                <span ng-show="addShuffleForm.inputNumberSetName.$error.minlength" class="text-warning">Name must be 5 or more characters</span>
+                            </div>
+                        </div>
+                        </fieldset>
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button  data-dismiss="modal" ng-click="vm.saveShuffleNumbers()" class="btn btn-primary btn-md"  ng-disabled="addShuffleForm.$invalid">Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>

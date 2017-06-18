@@ -1,0 +1,19 @@
+﻿<div class="container-fluid">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="alert alert alert-danger" ng-show="vm.errorMessage"><strong>{{vm.errorMessage}}</strong></div>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <div class="alert alert alert-danger">
+            <strong>Are you sure you want to delete NumberSet: {{vm.currentNumberSet.numberSetName}} !!</strong>
+        </div>
+        <form novalidate name="deleteNumberSetForm" class="form-horizontal"  ng-submit="vm.deleteNumberSet()">
+            <fieldset>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <a ng-href="#!/" class="btn btn-default">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

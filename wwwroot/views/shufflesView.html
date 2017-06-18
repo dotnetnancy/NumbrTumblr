@@ -1,0 +1,60 @@
+﻿
+<div class="container-fluid">
+    <div class="jumbotron col-md-12">
+        <h2>Shuffles</h2>
+        <div class="alert alert alert-danger" ng-show="vm.errorMessage"><strong>{{vm.errorMessage}}</strong></div>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <table id="card-table-shuffles" class="table">
+            <thead>
+                <tr>
+                    <th class="st-head-row">Id</th>
+                    <th class="st-head-row">Date/Time</th>
+                    <th class="st-head-row">Description</th>
+                    <!--<th class="st-head-row">Numbers In Shuffle Order</th>-->
+                    <!--<th class="st-head-row">Numbers Picked</th>--> 
+                    <th class="st-head-row">Edit Picks</th>
+                    <th class="st-head-row">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shuffle in vm.shuffles">
+                    <td>{{shuffle.shuffleID}}</td>
+                    <td ng-bind="shuffle.shuffleDateTime | date:'MM/dd/yyyy h:mma'"></td>
+                    <td>{{shuffle.shuffleDescription}}</td>
+                    <!--<td>{{shuffle.resultOfShuffleConcatenated}}</td>
+                    <td>{{shuffle.resultOfShufflePicksConcatenated}}</td>-->
+                    <!--to databind in the href need to use an ng-href-->
+                    <td><a ng-href="#!/shuffleNumbers/{{shuffle.numberSetID}}/{{shuffle.shuffleID}}/None" class="fa fa-pencil-square-o"></a></td>
+                    <td><a ng-href="#!/deleteShuffle/{{shuffle.shuffleID}}/{{shuffle.numberSetID}}" class="fa fa-trash-o"></a></td>
+                    <td ng-show="false" ng-if="$last" ng-init="vm.initCardTable()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+
+            //// media query event handler
+            if (matchMedia) {
+                var mq = window.matchMedia("(min-width: 400px)");
+                mq.addListener(WidthChange);
+                WidthChange(mq);
+            }
+
+            // media query change
+            function WidthChange(mq) {
+                if (mq.matches) {
+                    //alert(" window width is at least 400px");
+                    $('.large-only').show();
+                    $('.small-only').hide();
+
+                } else {
+                    //alert("window width is less than 400px");
+                    $('.large-only').hide();
+                    $('.small-only').show();
+                }
+            }
+
+        </script>
+    </div>
+</div>
+
+
